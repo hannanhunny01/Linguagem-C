@@ -1,0 +1,8 @@
+1 - leitura de strings
+  scanf("%s",str);      // li 1 palavra sem consumir o carater de espaco
+sendo
+   char str[100]
+   scanf(" %s",str) ;
+ --  scanf(" %[^\n]s",str)
+
+   fgets(stdin,. .....)

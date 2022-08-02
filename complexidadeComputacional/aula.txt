@@ -1,0 +1,8 @@
+Como medir desempenho de algoritmos ?
+    tempo de resposta
+       entrada
+       maquina
+       sistema operacional(concorrencia)
+
+    corretude
+    memoria ultilizada

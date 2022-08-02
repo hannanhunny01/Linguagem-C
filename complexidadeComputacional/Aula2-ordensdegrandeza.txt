@@ -1,0 +1,31 @@
+1-ordens de Grandeza
+
+  -constante : O(1)
+  -logaritmos: O(Log n)
+  -linear: O(n)
+  -quaselinear(linearitmica): 0(nlogn)
+  -POlinomial : O(n^k), k>= 2
+      -k=2 :quadratico
+      -k=3
+  -Exponencial:O(2^n)
+               O(k^n)       , para k>2
+               O(n^n)
+               O(n!)  
+       
+      n  |      O(n) |   O(nlogn) |  O(n^2))  | O(2^n)
+      ---|-----------|------------|-----------|---------
+      16 |     0,016s|  0,064s    | 0,256s    | 1m4s
+      32 |     0,032s|  0,16s     |  1s       | 46dias
+      512|     0,512s|   9s       |   4m22s   | 10^131 segundos
+2-Como analisar o desempenho?
+  analise se fragmentos de codigo e explor-se as seguintes propriedades
+    1-Se f1 e O(g1) (um laco) e f2 e O(g2)              //outro laco indepedente de outro
+     entao F1+f2 = O(g1+g2) = (max{g1,g2})
+     ex:
+     for(i=0;i<n;i++){
+      codigo O(1)         //   O(n)
+     }
+     for(j=0;j<n;j++){
+      codigo O(1)         //O(n) 
+     }                O(n+n) = O(2n)
+                             = O(n)
