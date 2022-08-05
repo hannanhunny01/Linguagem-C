@@ -1,56 +1,49 @@
 #include <stdio.h>
-  //# e = elemen looking for , l =ledft index , r =right index
-  int binary_search(int a[],int e, int l ,int r);
+#include <stdlib.h>
 
-
-int main() {
-  int limitofarray, numbers;
-  int limitofnumbers,numbers2;
-
-  printf("Type limit: ");
+int unsortedArray(int arr[],int s,int n);
   
-  scanf("%d%d", &limitofarray,&limitofnumbers);
-  
-  int *arr = (int *)malloc(limitofarray * sizeof(int));
-  
-  int *arr2 =(int *)malloc(limitofnumbers * sizeof(int));
-
-  for (int i = 0; i < limitofarray; i++) {
-    scanf("%d", &numbers);
-    arr[i] = numbers;
-  }
-  
-  for (int i = 0; i < limitofnumbers; i++) {
-    scanf("%d", &numbers2);
-    arr2[i] = numbers2;
-  }
-  
-  //for (int i = 0; i < limitofarray; i++) {
-//    printf("%d", arr[i]);
- // }
-  for(int j=0;j<limitofnumbers;j++){
-    
-   printf("%d\n",binary_search(arr, arr2[j], 0,limitofarray));
-  
-  
+int main(){
+    int n, m, i;
+    scanf("%d %d", &n, &m);
+    int *arr = malloc(n * sizeof(int)), *arr2 = malloc(m * sizeof(int));
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
     }
-
-
-
+    for (i = 0; i < m; i++)
+    {
+        scanf("%d", &arr2[i]);
+    }
   
 
+for (int i=0; i<m;i++){
+ int index = unsortedArray(arr,n,arr2[i]);
+  printf("%d\n",index);
 }
- int binary_search(int a[],int e, int l ,int r){
-    int mid =l+(r-1)/2;
-    if(l>r){
-      return -1;
-    }
-    if (a[mid] ==e){
-      return mid;
-    }
-    else if(a[mid]>e){
-      return binary_search(a,e,l,mid-1);
-    }else{
-      return binary_search(a,e,mid+1,r);
-    }
+
+return 0;
+  
+
+
+  
+  
+  }
+
+int unsortedArray(int arr[],int s,int n){
+for(int i=0;i<s;i+=5){  // notice the increment in i here...
+    if(arr[i] == n)   
+        return i;
+    
+/* check the next four indexes as well as if arr[i] is the last element of the array */ 
+    else if( arr[i+1] == n && i+1 < s)
+        return i+1;
+    else if(arr[i+2] == n && i+2 < s)
+        return i+2;
+    else if(arr[i+3] == n && i+3 < s)
+        return i+3;
+    else if(arr[i+4] == n && i+4 < s)
+        return i+4;
+}
+ return -1;
   }
