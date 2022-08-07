@@ -27,24 +27,24 @@ int andar(int *casas, int *encomendas, int tam_casas, int tam_encomendas){
 
 
 int main(void) {
-  int num_casas, num_encomendas, passos=0;
+  int N_casas, N_encomendas, passos=0;
 	int *casas, *entregas;
-	scanf("%d %d", &num_casas, &num_encomendas);
+	scanf("%d %d", &N_casas, &N_encomendas);
 
-	casas = malloc(num_casas*sizeof(int));
-	entregas = malloc(num_encomendas*sizeof(int));
+	casas = malloc(N_casas*sizeof(int));
+	entregas = malloc(N_encomendas*sizeof(int));
 
 	//Inserindo as casas
-	for(int i=0;i<num_casas;i++){
+	for(int i=0;i<N_casas;i++){
 		scanf("%d", &casas[i]);
 	}
 
 	//Formando as encomendas
-	for(int i=0;i<num_encomendas;i++){
+	for(int i=0;i<N_encomendas;i++){
 		scanf("%d", &entregas[i]);
 	}
 
-	passos = andar(casas, entregas, num_casas, num_encomendas);
+	passos = andar(casas, entregas, N_casas, N_encomendas);
 
 	printf("%d\n", passos);
 
