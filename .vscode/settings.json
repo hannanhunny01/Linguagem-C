@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "letrae-carteira": "c"
+        "letrae-carteira": "c",
+        "studyStack.C": "cpp"
     }
 }
