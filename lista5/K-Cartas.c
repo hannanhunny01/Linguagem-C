@@ -62,6 +62,7 @@ int main()
         if (contador > 2)
         {
             printf(" %d", desempilhar(pilha));
+            printf(",");
             num = desempilhar(pilha);
             pilha = empilhar(pilha, num);
         }
