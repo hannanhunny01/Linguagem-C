@@ -7,16 +7,13 @@ typedef struct celula {
   struct celula *prox;
 } celula;
 
-typedef struct {
-    celula *le;
-} fila;
-
-
-int desenfileira (celula *f, int *y) {
-    celula *lixo = f->le->prox;
-    if (lixo == f->le) return 1;
+int desenfileira (celula *f, int *y) { 
+    celula *lixo = f->prox;
+    if (lixo == NULL) {
+        return 0; 
+    }
     *y = lixo->dado;
-    f->le->prox = lixo->prox;
-    free (lixo);
-    return 0;
+    f->prox = lixo->prox; 
+    free(lixo); 
+    return 1; 
 }
