@@ -1,38 +1,42 @@
-#include <stdlib.h>
+#include <stdio.h>
 
-void swap(int *x, int *y) {
-  int temp = *x;
-  *x = *y;
-  *y = temp;
-}
-
-void heapify(int *arr, int n, int i) {
-  int largest = i;
-  int left = 2 * i + 1;
-  int right = 2 * i + 2;
-  if (left < n && arr[left] > arr[largest]) {
-    largest = left;
-  }
-  if (right < n && arr[right] > arr[largest]) {
-    largest = right;
-  }
-  if (largest != i) {
-    swap(&arr[i], &arr[largest]);
-    heapify(arr, n, largest);
+int median(int a, int b, int c) {
+  if ((a - b) * (c - a) >= 0) {
+    return a;
+  } else if ((b - a) * (c - b) >= 0) {
+    return b;
+  } else {
+    return c;
   }
 }
 
-void heapsort(int *arr, int n) {
-  for (int i = n / 2 - 1; i >= 0; i--) {
-    heapify(arr, n, i);
-  }
-  for (int i = n - 1; i >= 0; i--) {
-    swap(&arr[0], &arr[i]);
-    heapify(arr, i, 0);
+int partition(int *arr, int low, int high) {
+  int pivot = median(arr[low], arr[high], arr[(low + high) / 2]);
+  int i = low - 1;
+  int j = high + 1;
+  while (1) {
+    do {
+      i++;
+    } while (arr[i] < pivot);
+    do {
+      j--;
+    } while (arr[j] > pivot);
+    if (i >= j) {
+      return j;
+    }
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
   }
 }
 
-
+void quicksort(int *arr, int low, int high) {
+  if (low < high) {
+    int pivot_index = partition(arr, low, high);
+    quicksort(arr, low, pivot_index);
+    quicksort(arr, pivot_index + 1, high);
+  }
+}
 int main(void) {
   //  int produtos[33554432];
     int * produtos = (int*)malloc(33554432*sizeof(int));
@@ -45,7 +49,7 @@ int main(void) {
     for (int i = 0; i < q_produtos; i++){
         scanf("%d", &produtos[i]);}
     
-    heapsort(produtos,q_produtos);
+    quicksort(produtos,0,q_produtos-1);
   //  for(int i=0; i<q_produtos;i++){
   //      printf("%d  ",produtos[i]);
 
