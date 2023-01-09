@@ -77,9 +77,6 @@ void mergeSort(struct letters arr[], int l, int r)
     }
 }
 
-
-
-
 void maker(char *array ,int pos_atual, int tamanho_de_array,int repeticoes_de_alfa,struct letters v[],int *pos_de_index_struct);
 
 
@@ -96,14 +93,11 @@ int main(){
     for(int i =0; i<tamanho ;i++){
 
     }
-    
 
-    
     int indexofstruct=0;
     int *ptr = &indexofstruct;
    maker(v,0,tamanho-1,1,vofL,ptr);
    mergeSort(vofL,0,indexofstruct-1);
-   
 
    for(int i=0; i<indexofstruct;i++){
     printf("%d  %c  %d",vofL[i].vezes,vofL[i].letra,vofL[i].index);

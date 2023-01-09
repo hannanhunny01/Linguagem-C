@@ -1,6 +1,3 @@
-// mergesort algorithm
-
-
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -71,22 +68,16 @@ void mergeSort(int arr[], int l, int r)
 }
 
 
-
-
 int main(void) {
   int v[100000];
   int count=0;
-
   while(scanf("%d",&v[count])!=EOF){
         count+=1;
     }
   mergeSort(v,0,count-1);
-  
-
   for(int i=0; i<count;i++){
     printf("%d ",v[i]);
-   
-  }
+    }
   printf("\n");
   return 0;
   }
